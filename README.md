@@ -1,67 +1,34 @@
-# Hand Gesture Game Controller
+# 🎮 Hand Gesture Game Controller (Super Mario Edition)
 
-This project uses computer vision and hand tracking to control a game using hand gestures. It captures video from a webcam, detects hand movements, and translates them into keyboard inputs for game control.
+This project uses computer vision and hand tracking to control games using hand gestures. It captures video from a webcam, detects hand movements via **MediaPipe**, and translates them into low-level keyboard inputs. 
 
-## Features
+This version is specifically optimized for **Super Mario Bros**, featuring independent hand logic and "key holding" for higher jumps.
 
-- Real-time hand tracking using MediaPipe
-- Gesture recognition for game control
-- Keyboard input simulation for game interaction
-- Support for forward, backward, left, and right movements
+---
 
-## Prerequisites
+## 🚀 Features
 
-- Python 3.9
-- OpenCV
-- MediaPipe
-- PyWin32 (for Windows key simulation)
+- **Real-time Dual-Hand Tracking:** Independent processing for Left and Right hands.
+- **State-Based Key Holding:** Mimics physical key presses, allowing Mario to jump higher by holding a gesture.
+- **Visual Debugger:** On-screen UI showing active key states (W, A, D) and movement zones.
+- **Low-Level Input Injection:** Uses `ctypes` to bypass Windows security, ensuring compatibility with most game emulators.
 
-## Installation
+---
 
-1. Clone this repository:
-   ```
-   git clone https://github.com/harshkasat/hand-gesture-game-controller.git
+## 📋 Prerequisites
+
+- **Python 3.12** (Important: Versions higher than 3.12 currently lack stable MediaPipe support)
+- **OpenCV** (for image processing)
+- **MediaPipe 0.10.21** (for hand landmark detection)
+- **Windows OS** (Required for `directkey.py` hardware-level simulation)
+
+---
+
+## ⚙️ Installation
+
+1. **Clone this repository:**
+   ```bash
+   git clone [https://github.com/Kushagra1A/hand-gesture-game-controller.git](https://github.com/Kushagra1A/hand-gesture-game-controller.git)
    cd hand-gesture-game-controller
-   ```
 
-2. Install the required packages:
-   ```
-   pip install opencv-python mediapipe pywin32
-   ```
-
-## Usage
-
-1. Run the script:
-   ```
-   python main.py
-   ```
-
-2. Position your hand in front of the webcam:
-   - Right hand controls forward/backward movement
-   - Left hand controls left/right movement
-
-3. Use the following gestures:
-   - Right hand: 
-     - Fingers up: Move forward
-     - Fingers down: Move backward
-   - Left hand:
-     - Thumb left of fingers: Move left
-     - Thumb right of fingers: Move right
-
-4. Press 'e' to exit the program
-
-## How it works
-
-1. The script captures video from the default webcam
-2. MediaPipe is used to detect and track hand landmarks
-3. Based on the position of specific landmarks, gestures are recognized
-4. Recognized gestures are translated into keyboard inputs (W, A, S, D)
-5. These inputs can be used to control games that use standard WASD controls
-
-## Customization
-
-You can modify the `directkey.py` file to change the key mappings or add new gestures and corresponding actions in the main script.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+   
